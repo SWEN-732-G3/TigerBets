@@ -32,34 +32,31 @@ This section describes the features of the application.
 
 ## Architecture and Design
 
-This section describes the application architecture.
-
 ### Software Architecture
-> ![use-case-diagran](..\assets\architectural-pattern.png)
->
-> For the software architecture design diagram of “TigerBets”, we adopt a layered approach. From top to bottom, it contains four layers:
->
-> **Presentation Layer**:
->
-> - Contains the User Interface (UI) and Simple Visual Charts.
->
-> **Application Layer**:
->
-> - Consists of Business Logic, Application Controllers for Authentication (Auth), Events, Accounts, Betting, and Analytics.
->
-> **Domain Layer**:
->
-> - Involves Business Rules and Data Analytics, along with Entities such as Event, User, and Bet.
->
-> **Persistence Layer:**
->
-> - Includes the Database for Authentication (Auth), User information, Events, Bets, and the Leaderboard.
->
-> Each layer communicates information down to the next, indicating that the upper layers rely on the data and services provided by the lower ones. This architectural design emphasizes separation of concerns, with each layer focusing on specific functionalities to enhance the maintainability and scalability of the software.
+![architectural-pattern](..%2Fassets%2Farchitectural-pattern.png)
+
+For the software architecture design diagram of “TigerBets”, we adopt a layered approach. From top to bottom, it contains four layers:
+
+**Presentation Layer**:
+
+- Contains the User Interface (UI) and Simple Visual Charts.
+
+**Application Layer**:
+
+- Consists of Business Logic, Application Controllers for Authentication (Auth), Events, Accounts, Betting, and Analytics.
+
+**Domain Layer**:
+
+- Involves Business Rules and Data Analytics, along with Entities such as Event, User, and Bet.
+
+**Persistence Layer:**
+
+- Includes the Database for Authentication (Auth), User information, Events, Bets, and the Leaderboard.
+
+Each layer communicates information down to the next, indicating that the upper layers rely on the data and services provided by the lower ones. This architectural design emphasizes separation of concerns, with each layer focusing on specific functionalities to enhance the maintainability and scalability of the software.
 
 
 ### Use Cases
-
  
 ![use-case-diagram](..%2Fassets%2Fuse-case-diagram.png)
  
@@ -67,7 +64,7 @@ This section describes the application architecture.
 
 **Use Case Detailed Descriptions**
 
-This use case diagram describes two actors in the TigerBets system: regular users and system administrators. Each has their own functions and use cases. The diagram also illustrates the relationship between these two different actors. 
+This use case diagram describes two actors in the TigerBets system: regular end users and system administrators. Each has their own functions and use cases. The diagram also illustrates the relationship between these two different actors. 
 
 ------
 
@@ -77,7 +74,7 @@ This use case diagram describes two actors in the TigerBets system: regular user
 
 - **Manage Profile**: After logging into the page, users can fill in or update their personal information on the user information page.
 
-- **View Events**: Users can view the events they are interested in on the event page.
+- **View Events**: Users can view the sporting events they are interested in on the event page. 
 
 - **Place Bets and update points**: Users can choose the events they are interested in and place bets on an outcome with points. If the user does not have any points to spend, they will receive an alert message and the event will not accept bets from said user.
 
