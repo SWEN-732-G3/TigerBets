@@ -60,42 +60,44 @@ This section describes the application architecture.
 
 ### Use Cases
 
+ 
+![use-case-diagram](..%2Fassets%2Fuse-case-diagram.png)
+ 
+***
 
-> ![use-case-diagran](..\assets\use-case-diagran.png)
->
-> 
->
-> **Use Case Detailed Descriptions**
->
-> This use case diagram describes two actors in the TigerBets system: regular users and system administrators. Each has their own functions and use cases. The diagram also illustrates the relationship between these two different actors. 
->
-> ------
->
-> **Actor: End User**
->
-> **Register or Login User-**  Users must log in with their own account to access the main page. If they do not have an account, they need to register a new account that has not been used by other users on the login interface. Once the registration is complete, users can log into the system with their new account.
->
-> **Manage Profile** -After logging into the page, users can fill in or update their personal information on the user information page.
->
-> **View Events** - Users can view the events they are interested in on the event page.
->
-> **Place Bets and update points**- Users can choose the events they are interested in to place bets with their points. After the results of the event bets are announced, the users' points will be updated based on the outcome of the match.
->
-> **View Leaderboard** - Users can view the match results through the system's Leaderboard.
->
-> ------
->
-> **Actor: Admin**
->
-> **Login User** - Different from regular users, administrators have a different login interface. Accounts of regular users cannot log into the administrator's account. Only accounts with administrator privileges can log into the administrator page.
->
-> **View Leaderboard** - Admin can view the match results through the system's Leaderboard.
->
-> **Manage Users** - Administrators can manage the accounts of regular users, such as their information and deleting their accounts.
->
-> **Manage Events** - Administrators can update and upload new events, as well as delete events.
->
-> 
+**Use Case Detailed Descriptions**
+
+This use case diagram describes two actors in the TigerBets system: regular users and system administrators. Each has their own functions and use cases. The diagram also illustrates the relationship between these two different actors. 
+
+------
+
+**Actor: End User**
+
+- **Register or Login User**:  Users must log in with their own account to access the main page. If they do not have an account, they need to register a new account that has not been used by other users on the login interface. Once the registration is complete, users can log into the system with their new account.
+
+- **Manage Profile**: After logging into the page, users can fill in or update their personal information on the user information page.
+
+- **View Events**: Users can view the events they are interested in on the event page.
+
+- **Place Bets and update points**: Users can choose the events they are interested in and place bets on an outcome with points. If the user does not have any points to spend, they will receive an alert message and the event will not accept bets from said user.
+
+- **Update Points**: Once an event has ended, Users who bet on the event will receive additional points depending on the outcome of the event.
+
+- **View Leaderboard**: Users can view the standing of points among all other users through the system's leaderboard
+
+------
+
+**Actor: Admin**
+
+- **Login User**: Different from regular users, administrators have a different login interface. Accounts of regular users cannot log into the administrator's account. Only accounts with administrator privileges can log into the administrator page.
+
+- **View Leaderboard**: Admins can view the standing of points among all end users through the system's leaderboard
+
+- **Manage Users**: Administrators can manage the accounts of end users, such as updating their information and deleting their accounts from the system.
+
+- **Manage Events**: Administrators can update and upload new events, as well as delete events.
+
+ 
 
 
 ### Class Diagram
