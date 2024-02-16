@@ -37,21 +37,13 @@ This section describes the features of the application.
 
 For the software architecture design diagram of “TigerBets”, we adopt a layered approach. From top to bottom, it contains four layers:
 
-**Presentation Layer**:
+**Presentation Layer**: Contains the User Interface (UI) and Simple Visual Charts.
 
-- Contains the User Interface (UI) and Simple Visual Charts.
+**Application Layer**: Consists of Business Logic, Application Controllers for Authentication (Auth), Events, Accounts, Betting, and Analytics.
 
-**Application Layer**:
+**Domain Layer**: Involves Business Rules and Data Analytics, along with Entities such as Event, User, and Bet.
 
-- Consists of Business Logic, Application Controllers for Authentication (Auth), Events, Accounts, Betting, and Analytics.
-
-**Domain Layer**:
-
-- Involves Business Rules and Data Analytics, along with Entities such as Event, User, and Bet.
-
-**Persistence Layer:**
-
-- Includes the Database for Authentication (Auth), User information, Events, Bets, and the Leaderboard.
+**Persistence Layer:**: Includes the Database for Authentication (Auth), User information, Events, Bets, and the Leaderboard.
 
 Each layer communicates information down to the next, indicating that the upper layers rely on the data and services provided by the lower ones. This architectural design emphasizes separation of concerns, with each layer focusing on specific functionalities to enhance the maintainability and scalability of the software.
 
