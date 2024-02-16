@@ -17,8 +17,9 @@
 
 ## Executive Summary
 
-This is a summary of the project.
+TigerBets is an online betting platform designed to provide users with an interactive experience in predicting outcomes across various college sporting events. It offers a range of features to cater to both administrators and users, ensuring smooth operation and engaging gameplay. O
 
+_Disclaimer: TigerBets operates solely with a friendly point system and does not involve real money transactions. The platform is intended for entertainment purposes only._
 
 ## Requirements
 
