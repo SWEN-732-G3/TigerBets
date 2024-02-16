@@ -1,5 +1,5 @@
 
-# PROJECT Design Documentation
+# TigerBets Design Documentation
 
 ## Team Information
 * Team name: TigerBets
