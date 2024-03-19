@@ -8,7 +8,7 @@ CORS(app)
 api = Api(app)
 
 # User APIs
-api.add_resource(Users, "/users")
+api.add_resource(Users, '/users/<string:action>')
 
 if __name__ == "__main__":
     app.run(debug=True, port=8080)
