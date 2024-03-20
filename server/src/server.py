@@ -16,10 +16,12 @@ api.add_resource(Init, "/manage/init")
 api.add_resource(Version, "/manage/version")
 
 # User APIs
-api.add_resource(Users, "/users")
+api.add_resource(Users, '/users/<string:action>')
+
 # Event APIs
 api.add_resource(Events, '/events')
 api.add_resource(SingleEvent, '/events/<string:event_id>')
+
 # Bet APIs
 api.add_resource(Bets, "/bets")
 api.add_resource(Bet, "/bets/<string:bet_id>")
