@@ -1,27 +1,64 @@
-stages:
-  [
-    test
-  ]
+name: Test Workflow
 
-variables:
-  POSTGRES_DB: swen732
-  POSTGRES_USER: swen732
-  POSTGRES_PASSWORD: swen732
-  PYTHON_RUN: python3
+on:
+  push:
+  pull_request:
 
-test:
-  stage: test
-  image:
-    name: kalrabb/swen344-pg-py-base:latest
-  services:
-    - postgres:14
-  before_script:
-    - pip install -r ../server/requirements.txt
-    - cp ../server/config/gtihub-credentials.yml ../server/config/db.yml
-    - $PYTHON_RUN --version
-    - $PYTHON_RUN ../server/src/server.py &
-    - sleep 3
-  script:
-    - cd server && $PYTHON_RUN -m unittest -v
-    - coverage run -m unittest discover tests
-    - coverage report -m
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:14
+        env:
+          POSTGRES_DB: ${{ env.POSTGRES_DB }}
+          POSTGRES_USER: ${{ env.POSTGRES_USER }}
+          POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
+    env:
+      POSTGRES_DB: swen732
+      POSTGRES_USER: swen732
+      POSTGRES_PASSWORD: swen732
+      PYTHON_RUN: python3
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ env.PYTHON_RUN }}
+
+      - name: Install dependencies
+        run: |
+          pip install -r server/requirements.txt
+
+      - name: Copy config files
+        run: |
+          cp server/config/github-credentials.yml server/config/db.yml
+
+      - name: Check Python version
+        run: ${{ env.PYTHON_RUN }} --version
+
+      - name: Start server
+        run: ${{ env.PYTHON_RUN }} server/src/server.py &
+        background: true
+
+      - name: Wait for server to start
+        run: sleep 3
+
+      - name: Run unit tests
+        run: ${{ env.PYTHON_RUN }} -m unittest -v
+        working-directory: server
+
+      - name: Run coverage
+        run: |
+          coverage run -m unittest discover tests
+          coverage report -m
+        working-directory: server
