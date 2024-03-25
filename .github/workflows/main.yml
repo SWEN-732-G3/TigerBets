@@ -13,21 +13,8 @@ jobs:
     strategy:
       matrix:
         python-version: ["3.10"]
-    services:
-      postgres:
-        image: postgres:14
-        env:
-          POSTGRES_DB: ${{ env.POSTGRES_DB }}
-          POSTGRES_USER: ${{ env.POSTGRES_USER }}
-          POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
-        ports:
-          - 5432:5432
-        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     env:
-      POSTGRES_DB: swen732
-      POSTGRES_USER: swen732
-      POSTGRES_PASSWORD: swen732
       PYTHON_RUN: python
 
     steps:
