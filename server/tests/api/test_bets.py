@@ -13,9 +13,6 @@ class TestExample(unittest.TestCase):
         self.mock_get_rest_call = patch('tests.test_utils.get_rest_call').start()
         self.mock_delete_rest_call = patch('tests.test_utils.delete_rest_call').start()
         self.mock_put_rest_call = patch('tests.test_utils.put_rest_call').start()
-        post_rest_call(self, "http://localhost:8080/manage/init")
-        exec_sql_file("data/test_data.sql")
-        print("DB is reset")
 
     def tearDown(self):
         """
