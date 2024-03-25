@@ -1,0 +1,27 @@
+stages:
+  [
+    test
+  ]
+
+variables:
+  POSTGRES_DB: swen732
+  POSTGRES_USER: swen732
+  POSTGRES_PASSWORD: swen732
+  PYTHON_RUN: python3
+
+test:
+  stage: test
+  image:
+    name: kalrabb/swen344-pg-py-base:latest
+  services:
+    - postgres:14
+  before_script:
+    - pip install -r ../server/requirements.txt
+    - cp ../server/config/gtihub-credentials.yml ../server/config/db.yml
+    - $PYTHON_RUN --version
+    - $PYTHON_RUN ../server/src/server.py &
+    - sleep 3
+  script:
+    - cd server && $PYTHON_RUN -m unittest -v
+    - coverage run -m unittest discover tests
+    - coverage report -m
