@@ -10,6 +10,12 @@ jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.10", "3.11", "pypy3.9", "pypy3.10"]
+        exclude:
+          - python-version: "pypy3.9"
+          - python-version: "pypy3.10"
 
     services:
       postgres:
@@ -26,7 +32,7 @@ jobs:
       POSTGRES_DB: swen732
       POSTGRES_USER: swen732
       POSTGRES_PASSWORD: swen732
-      PYTHON_RUN: python3.9
+      PYTHON_RUN: python
 
     steps:
       - name: Checkout Repository
@@ -35,7 +41,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: ${{ env.PYTHON_RUN }}
+          python-version: ${{ matrix.python-version }}
 
       - name: Install dependencies
         run: |
