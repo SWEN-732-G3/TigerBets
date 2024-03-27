@@ -7,4 +7,5 @@ CREATE TABLE Users (
     full_name varchar(500),
     email varchar(100),
     is_deleted BOOLEAN DEFAULT false,
+    is_admin BOOLEAN DEFAULT false,
     session_id varchar(256));
